@@ -1,0 +1,148 @@
+
+
+
+
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  flex-direction: column;
+}
+
+/* Sidebar styles (desktop default) */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #1e1e2f;
+  color: white;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  text-align: center;
+  padding: 20px;
+  background: #141421;
+  width: 20%;
+}
+
+.sidebar.closed {
+  width: 10%;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+/* Nav links (desktop default: visible) */
+.sidebar .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar .nav-links li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-links a {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sidebar .nav-links a:hover {
+  background: #2c2c44;
+}
+
+.sidebar .nav-links i {
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Hide text when closed (desktop) */
+.sidebar.closed .nav-links span {
+  display: none;
+}
+
+/* Main content styles */
+.main-content {
+  width: 80%;
+  padding: 20px;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+  margin-left: 20%;
+  padding-top: 3%;
+}
+
+#main-heading{
+    font-size: 3rem;
+}
+
+.sidebar.closed ~ .main-content {
+  margin-left: 10%;
+}
+
+/* Toggle button */
+.toggle-btn {
+  background: #1e1e2f;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  /* Hide nav links by default on mobile */
+  .sidebar .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #141421;
+    width: 100%;
+  }
+
+  /* Show nav links when .open class is applied */
+  .sidebar.open .nav-links {
+    display: flex;
+  }
+
+  .sidebar.open ~ .main-content {
+  margin-top: 100%;
+}
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 30%; /* just enough to clear header */
+  }
+}
+
+
+
+
